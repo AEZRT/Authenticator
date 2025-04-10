@@ -2,6 +2,16 @@
 // to other translation files. Used by i18n.sh
 'use strict';
 
+function filterAccounts() {
+  const query = document.getElementById("search").value.toLowerCase();
+  const allAccounts = document.querySelectorAll(".account"); // use your actual class/structure here
+  
+  allAccounts.forEach(acc => {
+    const label = acc.textContent.toLowerCase();
+    acc.style.display = label.includes(query) ? "block" : "none";
+  });
+}
+
 const fs = require('fs');
 
 function readFile(filename) {
